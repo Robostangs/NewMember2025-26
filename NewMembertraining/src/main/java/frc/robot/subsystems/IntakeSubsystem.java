@@ -5,14 +5,7 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-/**
- * Intake subsystem: contains motor constants and simple control methods.
- *
- * Note: CTRE Phoenix6 motor wiring is intentionally left out of this initial
- * implementation to avoid compile-time coupling to the vendor API in this
- * environment. To wire to a TalonFX, replace the placeholder methods with
- * a real motor controller instance using the Phoenix6 Java API.
- */
+
 public class IntakeSubsystem extends SubsystemBase {
     /** motor ID = 5, default speed = 60% */
     private static final int kIntakeMotorID = 5; // moved from Constants
@@ -25,7 +18,7 @@ public class IntakeSubsystem extends SubsystemBase {
         // Constructor: initialize hardware here when Phoenix6 is available.
     }
 
-    /** Run the intake at a percent output [-1.0, 1.0]. Placeholder implementation. */
+    /** Run the intake at a percent output [-1.0, 1.0]. */
     public void setPercentOutput(double percent) {
         // TODO: set motor output via CTRE Phoenix6 TalonFX when available.
     }
