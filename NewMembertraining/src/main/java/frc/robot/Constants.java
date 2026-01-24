@@ -4,6 +4,8 @@
 
 package frc.robot;
 
+
+
 /**
  * The Constants class provides a convenient place for teams to hold robot-wide numerical or boolean
  * constants. This class should not be used for any other purpose. All constants should be declared
@@ -16,5 +18,8 @@ package frc.robot;
 public class Constants {
     public static class OperatorConstants {
         public static final int kDriverControllerPort = 0;
+    }
+    public static class ShooterConstants {
+        public static final double kShooterRestSetpoint = 0.0;
     }
 }
