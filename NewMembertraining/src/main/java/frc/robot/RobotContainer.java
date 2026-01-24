@@ -60,12 +60,8 @@ public class RobotContainer {
     // cancelling on release.
     m_driverController.b().whileTrue(m_exampleSubsystem.exampleMethodCommand());
 
-  // Run intake while A is held
-  m_driverController.a()
-    .whileTrue(
-      Commands.runOnce(() -> m_intakeSubsystem.run(), m_intakeSubsystem)
-    )
-    .onFalse(Commands.runOnce(() -> m_intakeSubsystem.stop(), m_intakeSubsystem));
+  // Toggle intake when A is pressed
+  m_driverController.a().onTrue(Commands.runOnce(() -> m_intakeSubsystem.toggle(), m_intakeSubsystem));
   }
 
   public Command getAutonomousCommand() {

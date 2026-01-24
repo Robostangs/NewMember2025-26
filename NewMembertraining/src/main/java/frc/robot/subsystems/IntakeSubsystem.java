@@ -16,6 +16,10 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 public class IntakeSubsystem extends SubsystemBase {
     // --- Constants local to this subsystem ---
     private static final int kIntakeMotorID = 5; // moved from Constants
+    private static final double kDefaultIntakeSpeed = 0.6;
+
+    // Toggle state
+    private boolean running = false;
 
     public IntakeSubsystem() {
         // Constructor: initialize hardware here when Phoenix6 is available.
@@ -28,13 +32,24 @@ public class IntakeSubsystem extends SubsystemBase {
 
     /** Convenience: run intake inward at default speed. */
     public void run() {
-        setPercentOutput(0.6);
+            setPercentOutput(kDefaultIntakeSpeed);
+            running = true;
     }
 
     /** Stop the intake motor. */
     public void stop() {
-        setPercentOutput(0.0);
+            setPercentOutput(0.0);
+            running = false;
     }
+
+        /** Toggle intake on/off. */
+        public void toggle() {
+            if (running) {
+                stop();
+            } else {
+                run();
+            }
+        }
 
     @Override
     public void periodic() {
