@@ -21,5 +21,6 @@ public class Constants {
     }
     public static class ShooterConstants {
         public static final double kShooterRestSetpoint = 0.0;
+        public static final int kArmEncoderId = 1;
     }
 }
