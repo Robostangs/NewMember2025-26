@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj2.command.button.Trigger;
 import frc.robot.Constants.OperatorConstants;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.subsystems.ExampleSubsystem;
+import frc.robot.subsystems.IntakeSubsystem;
 
 
 /**
@@ -25,6 +26,10 @@ public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   @SuppressWarnings("unused")
   private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
+
+  // Intake subsystem
+  @SuppressWarnings("unused")
+  private final IntakeSubsystem m_intakeSubsystem = new IntakeSubsystem();
 
     // Replace with CommandPS4Controller or CommandJoystick if needed
   @SuppressWarnings("unused")
@@ -54,6 +59,13 @@ public class RobotContainer {
     // Schedule `exampleMethodCommand` when the Xbox controller's B button is pressed,
     // cancelling on release.
     m_driverController.b().whileTrue(m_exampleSubsystem.exampleMethodCommand());
+
+  // Run intake while A is held
+  m_driverController.a()
+    .whileTrue(
+      Commands.runOnce(() -> m_intakeSubsystem.run(), m_intakeSubsystem)
+    )
+    .onFalse(Commands.runOnce(() -> m_intakeSubsystem.stop(), m_intakeSubsystem));
   }
 
   public Command getAutonomousCommand() {
