@@ -9,9 +9,9 @@ public class ChangeShooterPosition extends Command {
   int direction;
 
 /**
- * A command that sets the arm to a target rotation
+ * A command that changes the shooter's shooting angle
  * 
- * @param rotations the target rotation for motion magic
+ * @param rotations the target rotation for?
  */
   public ChangeShooterPosition(double rotations, int direction) {
 
@@ -21,7 +21,7 @@ public class ChangeShooterPosition extends Command {
     addRequirements(shooter);
 
   }
-  // Start of the command, sets the arm to the setpoint
+  // Start of the command, sets the shooter to the setpoint
   @Override
   public void initialize() {
     shooter.ChangeShooterPosition(rotations, direction);
@@ -37,11 +37,11 @@ public class ChangeShooterPosition extends Command {
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    //shooter.postStatus("Arm at this rotation:" + rotations);
+    //shooter.postStatus("Shooter at this rotation:" + rotations);
 
   }
 
-  // Returns true when the arm is within the tolerence 
+  // Returns true when keybind is up
   @Override
   public boolean isFinished() {
     return true;
