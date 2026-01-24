@@ -27,11 +27,11 @@ public class RobotContainer {
   @SuppressWarnings("unused")
   private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
 
-  // Intake subsystem
+  // Intake subsystem: Creates intake subsystem. This makes the intake exist. 
   @SuppressWarnings("unused")
   private final IntakeSubsystem m_intakeSubsystem = new IntakeSubsystem();
 
-    // Replace with CommandPS4Controller or CommandJoystick if needed
+    // Xbox Controller: Creates xbox controller. This lets us read button presses.
   @SuppressWarnings("unused")
   private final CommandXboxController m_driverController =
       new CommandXboxController(OperatorConstants.kDriverControllerPort);
@@ -61,7 +61,8 @@ public class RobotContainer {
     m_driverController.b().whileTrue(m_exampleSubsystem.exampleMethodCommand());
 
   // Toggle intake when A is pressed
-  m_driverController.a().onTrue(Commands.runOnce(() -> m_intakeSubsystem.toggle(), m_intakeSubsystem));
+  m_driverController.a()
+    .onTrue(Commands.runOnce(() -> m_intakeSubsystem.toggle(), m_intakeSubsystem));
   }
 
   public Command getAutonomousCommand() {

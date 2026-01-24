@@ -14,12 +14,12 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
  * a real motor controller instance using the Phoenix6 Java API.
  */
 public class IntakeSubsystem extends SubsystemBase {
-    // --- Constants local to this subsystem ---
+    /** motor ID = 5, default speed = 60% */
     private static final int kIntakeMotorID = 5; // moved from Constants
     private static final double kDefaultIntakeSpeed = 0.6;
 
     // Toggle state
-    private boolean running = false;
+    private boolean running = false; // This remembers whether the intake is currently on/off.
 
     public IntakeSubsystem() {
         // Constructor: initialize hardware here when Phoenix6 is available.
@@ -30,8 +30,8 @@ public class IntakeSubsystem extends SubsystemBase {
         // TODO: set motor output via CTRE Phoenix6 TalonFX when available.
     }
 
-    /** Convenience: run intake inward at default speed. */
-    public void run() {
+    /** For now, it runs intake at default speed. This turns the intake ON. */
+    public void run() { 
             setPercentOutput(kDefaultIntakeSpeed);
             running = true;
     }
