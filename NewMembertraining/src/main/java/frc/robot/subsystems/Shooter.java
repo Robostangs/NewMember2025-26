@@ -38,7 +38,7 @@ public class Shooter extends SubsystemBase {
     }
 
 
-    public void shoot (double force) {
+    public void ShootFuel (double force) {
         //code to shoot the ball
     }
 
@@ -52,10 +52,10 @@ public class Shooter extends SubsystemBase {
         shooterControl.Position = Constants.ShooterConstants.kShooterRestSetpoint;
     }
 
-   // public boolean isShooterAtTarget (double tolerance) {
+    public boolean isShooterAtTarget (double tolerance) {
         //code to check if the shooter is at the target position
-        //return Math.abs(shooterControl.Position - shooterEncoder.getPosition.getValueAsDouble()) < tolerance;
-    //}
+        return Math.abs(shooterControl.Position - shooterEncoder.getPosition.getValueAsDouble()) < tolerance;
+    }
 
     public void setShooterMotionMagic() {
         //code to set the shooter using motion magic
@@ -66,5 +66,7 @@ public class Shooter extends SubsystemBase {
     public void periodic() {
         // This method will be called once per scheduler run
     }
+    
+    
 }
 

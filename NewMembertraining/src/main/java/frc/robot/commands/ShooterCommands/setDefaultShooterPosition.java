@@ -3,7 +3,7 @@ package frc.robot.commands.ShooterCommands;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.Shooter;
 
-public class setDefaultShooterPosition extends Command {
+public class SetDefaultShooterPosition extends Command {
   Shooter shooter;
   double rotations;
   int direction;
@@ -13,7 +13,7 @@ public class setDefaultShooterPosition extends Command {
  * 
  * @param rotations the target rotation for?
  */
-  public setDefaultShooterPosition() {
+  public SetDefaultShooterPosition() {
 
   
     shooter = Shooter.getInstance();
@@ -28,7 +28,7 @@ public class setDefaultShooterPosition extends Command {
   
   @Override
   public void execute() {
-    shooter.setDefaultShooterPosition();
+    shooter.setShooterMotionMagic();
 
   }
 
@@ -42,7 +42,7 @@ public class setDefaultShooterPosition extends Command {
   // Immediately finishes
   @Override
   public boolean isFinished() {
-    return true;
+    return shooter.isShooterAtTarget(0.01);
 
   }
 
