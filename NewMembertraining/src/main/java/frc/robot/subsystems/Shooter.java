@@ -10,6 +10,8 @@ import frc.robot.Constants;
 
 import com.ctre.phoenix6.hardware.CANcoder;
 
+import com.ctre.phoenix6.hardware.TalonFX;
+
 public class Shooter extends SubsystemBase {
     
 
@@ -17,6 +19,7 @@ public class Shooter extends SubsystemBase {
     private static Shooter mInstance;
     private MotionMagicTorqueCurrentFOC shooterControl;
     private CANcoder shooterEncoder;
+    private TalonFX shooterMotor;
 
 
     //gets an active instance of the shooter
@@ -31,7 +34,7 @@ public class Shooter extends SubsystemBase {
 
         //variable definitions
         shooterControl = new MotionMagicTorqueCurrentFOC(Constants.ShooterConstants.kShooterRestSetpoint);
-        shooterEncoder = new CANcoder(Constants.ShooterConstants.kArmEncoderId); //assuming ID 1 for the encoder
+        shooterEncoder = new CANcoder(Constants.ShooterConstants.kArmEncoderId);
     }
 
 
@@ -39,14 +42,24 @@ public class Shooter extends SubsystemBase {
         //code to shoot the ball
     }
 
-    public void setShooterPosition (double angle) {
+    public void ChangeShooterPosition (double speed, int direction) {
         //code to set the shooter position
-        shooterControl.Position = (angle);
+        shooterControl.Position += (speed*direction);
     }
 
-    public boolean isShooterAtTarget (double tolerance) {
+    public void setDefaultShooterPosition() {
+        //code to set the shooter to the default position
+        shooterControl.Position = Constants.ShooterConstants.kShooterRestSetpoint;
+    }
+
+   // public boolean isShooterAtTarget (double tolerance) {
         //code to check if the shooter is at the target position
-        return Math.abs(shooterControl.Position - shooterEncoder.getPosition.getValueAsDouble()) < tolerance;
+        //return Math.abs(shooterControl.Position - shooterEncoder.getPosition.getValueAsDouble()) < tolerance;
+    //}
+
+    public void setShooterMotionMagic() {
+        //code to set the shooter using motion magic
+        shooterMotor.setControl(shooterControl);
     }
 
     @Override
