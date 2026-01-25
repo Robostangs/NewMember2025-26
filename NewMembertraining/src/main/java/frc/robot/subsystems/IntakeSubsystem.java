@@ -17,6 +17,7 @@ public class IntakeSubsystem extends SubsystemBase {
     public IntakeSubsystem() {
         // Constructor: initialize hardware here when Phoenix6 is available.
     }
+    
 
     /** Run the intake at a percent output [-1.0, 1.0]. */
     public void setPercentOutput(double percent) {
