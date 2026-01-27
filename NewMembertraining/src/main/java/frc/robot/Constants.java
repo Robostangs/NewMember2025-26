@@ -18,20 +18,10 @@ public class Constants {
         public static final int kDriverControllerPort = 0;
     }
 
+public static class IntakeConstants {
+    public static final int intakeMotorID = 5;
 
+    public static final TalonFXConfiguration configs = new TalonFXConfiguration();
 
-
-
-
-
-
-
-
-    
-    public static class ShooterConstants {
-        public static final int kArmEncoderId = 1; 
-        public static final double kShooterRestSetpoint = 0.0;
-    }
-
-    
+}
 }

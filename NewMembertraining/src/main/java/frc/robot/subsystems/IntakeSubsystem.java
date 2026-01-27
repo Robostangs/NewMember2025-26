@@ -5,17 +5,53 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import frc.robot.Constants;
 
 public class IntakeSubsystem extends SubsystemBase {
-    /** Creates a new IntakeSubsystem */
+    /** motor ID = 5, default speed = 60% */
+    private static final int kIntakeMotorID = 5; // moved from Constants
+    private static final double kDefaultIntakeSpeed = 0.6;
 
-    /* Initialize the Intake Motor */
-    private TalonFX intakeMotor = new TalonFX()
-    public IntakeSubsystem() {}
+    // Toggle state
+    private boolean running = false; // This remembers whether the intake is currently on/off.
+
+    public IntakeSubsystem() {
+        // Constructor: initialize hardware here when Phoenix6 is available.
+    }
+    
+
+    /** Run the intake at a percent output [-1.0, 1.0]. */
+    public void setPercentOutput(double percent) {
+        // TODO: set motor output via CTRE Phoenix6 TalonFX when available.
+    }
+
+    /** For now, it runs intake at default speed. This turns the intake ON. */
+    public void run() { 
+            setPercentOutput(kDefaultIntakeSpeed);
+            running = true;
+    }
+
+    /** Stop the intake motor. */
+    public void stop() {
+            setPercentOutput(0.0);
+            running = false;
+    }
+
+        /** Toggle intake on/off. */
+        public void toggle() {
+            if (running) {
+                stop();
+            } else {
+                run();
+            }
+        }
 
     @Override
     public void periodic() {
-        // This method will be called once per scheduler run
+        // Called once per scheduler run.
+    }
+
+    @Override
+    public void simulationPeriodic() {
+        // Called once per scheduler run during simulation.
     }
 }

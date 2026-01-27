@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj2.command.button.Trigger;
 import frc.robot.Constants.OperatorConstants;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.subsystems.ExampleSubsystem;
+import frc.robot.subsystems.IntakeSubsystem;
 
 
 /**
@@ -26,7 +27,11 @@ public class RobotContainer {
   @SuppressWarnings("unused")
   private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
 
-    // Replace with CommandPS4Controller or CommandJoystick if needed
+  // Intake subsystem: Creates intake subsystem. This makes the intake exist. 
+  @SuppressWarnings("unused")
+  private final IntakeSubsystem m_intakeSubsystem = new IntakeSubsystem();
+
+    // Xbox Controller: Creates xbox controller. This lets us read button presses.
   @SuppressWarnings("unused")
   private final CommandXboxController m_driverController =
       new CommandXboxController(OperatorConstants.kDriverControllerPort);
@@ -35,16 +40,8 @@ public class RobotContainer {
     configureBindings();
   }
 
-    /**
-   * Use this method to define your trigger->command mappings. Triggers can be created via the
-   * {@link Trigger#Trigger(java.util.function.BooleanSupplier)} constructor with an arbitrary
-   * predicate, or via the named factories in {@link
-   * edu.wpi.first.wpilibj2.command.button.CommandGenericHID}'s subclasses for {@link
-   * CommandXboxController Xbox}/{@link edu.wpi.first.wpilibj2.command.button.CommandPS4Controller
-   * PS4} controllers or {@link edu.wpi.first.wpilibj2.command.button.CommandJoystick Flight
-   * joysticks}.
-   */
 
+  
 
   private void configureBindings() {
     // Schedule `ExampleCommand` when `exampleCondition` changes to `true`
@@ -54,6 +51,10 @@ public class RobotContainer {
     // Schedule `exampleMethodCommand` when the Xbox controller's B button is pressed,
     // cancelling on release.
     m_driverController.b().whileTrue(m_exampleSubsystem.exampleMethodCommand());
+
+  // Toggle intake when A is pressed
+  m_driverController.a()
+    .onTrue(Commands.runOnce(() -> m_intakeSubsystem.toggle(), m_intakeSubsystem));
   }
 
   public Command getAutonomousCommand() {
