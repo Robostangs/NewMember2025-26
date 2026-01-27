@@ -18,6 +18,20 @@ public class Constants {
         public static final int kDriverControllerPort = 0;
     }
 
+
+
+
+
+
+
+
+
+
     
-}
+    public static class ShooterConstants {
+        public static final int kArmEncoderId = 1; 
+        public static final double kShooterRestSetpoint = 0.0;
+    }
+
+    
 }

@@ -54,7 +54,7 @@ public class Shooter extends SubsystemBase {
 
     public boolean isShooterAtTarget (double tolerance) {
         //code to check if the shooter is at the target position
-        return Math.abs(shooterControl.Position - shooterEncoder.getPosition.getValueAsDouble()) < tolerance;
+        return Math.abs(shooterControl.Position - shooterEncoder.getAbsolutePosition().getValueAsDouble()) < tolerance;
     }
 
     public void setShooterMotionMagic() {
