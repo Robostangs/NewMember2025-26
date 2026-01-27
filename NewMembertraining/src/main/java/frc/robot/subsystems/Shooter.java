@@ -34,7 +34,7 @@ public class Shooter extends SubsystemBase {
 
         //variable definitions
         shooterControl = new MotionMagicTorqueCurrentFOC(Constants.ShooterConstants.kShooterRestSetpoint);
-        shooterEncoder = new CANcoder(Constants.ShooterConstants.kArmEncoderId);
+        shooterEncoder = new CANcoder(Constants.ShooterConstants.kShooterEncoderId);
     }
 
 
