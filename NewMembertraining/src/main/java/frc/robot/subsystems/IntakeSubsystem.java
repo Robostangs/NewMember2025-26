@@ -11,6 +11,9 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 =======
 import frc.robot.Constants;
 import frc.robot.Constants.IntakeConstants;
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
 public class IntakeSubsystem extends SubsystemBase {
@@ -64,6 +67,9 @@ public class IntakeSubsystem extends SubsystemBase {
 
     }
 
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
     @Override
