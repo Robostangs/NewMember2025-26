@@ -4,13 +4,20 @@
 
 package frc.robot.subsystems;
 
+import com.ctre.phoenix6.hardware.TalonFX;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+<<<<<<< Updated upstream
+=======
+import frc.robot.Constants;
+import frc.robot.Constants.IntakeConstants;
+>>>>>>> Stashed changes
 
 public class IntakeSubsystem extends SubsystemBase {
     /** motor ID = 5, default speed = 60% */
     private static final int kIntakeMotorID = 5; // moved from Constants
     private static final double kDefaultIntakeSpeed = 0.6;
 
+<<<<<<< Updated upstream
     // Toggle state
     private boolean running = false; // This remembers whether the intake is currently on/off.
 
@@ -44,6 +51,19 @@ public class IntakeSubsystem extends SubsystemBase {
                 run();
             }
         }
+=======
+    /* Initialize the Intake Motor */
+    private TalonFX intakeMotor = new TalonFX(IntakeConstants.intakeMotorID)
+    public IntakeSubsystem() {
+        //Configures factory defaults
+        intakeMotor.getConfigurator().apply(IntakeConstants.configs);
+        //This will update the motor with the current configurations
+        intakeMotor.getConfigurator().refresh(IntakeConstants.configs);
+        intakeMotor.getConfigurator().apply(IntakeConstants.configs);
+
+    }
+
+>>>>>>> Stashed changes
 
     @Override
     public void periodic() {
