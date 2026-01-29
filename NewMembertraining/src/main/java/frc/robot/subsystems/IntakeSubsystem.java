@@ -40,6 +40,8 @@ public class IntakeSubsystem extends SubsystemBase {
         public void toggle() {
             if (running) {
                 stop();
+
+                
             } else {
                 run();
             }
