@@ -26,7 +26,7 @@ public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   @SuppressWarnings("unused")
   private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
-  
+
   // Intake subsystem: Creates intake subsystem. This makes the intake exist. 
   @SuppressWarnings("unused")
   private final IntakeSubsystem m_intakeSubsystem = new IntakeSubsystem();
