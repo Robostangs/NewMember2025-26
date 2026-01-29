@@ -10,16 +10,7 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
-import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
-// Base placeholder for any Phoenix-related subsystem.
-class Phoenix6Subsystem extends SubsystemBase {
-  
-
-
-public Phoenix6Subsystem(){
-
-}
 public class Robot extends TimedRobot {
   private Command m_autonomousCommand;
 
@@ -98,5 +89,4 @@ public class Robot extends TimedRobot {
   /** This function is called periodically whilst in simulation. */
   @Override
   public void simulationPeriodic() {}
-}
 }
