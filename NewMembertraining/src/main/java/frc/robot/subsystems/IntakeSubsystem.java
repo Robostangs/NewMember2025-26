@@ -4,10 +4,15 @@
 
 package frc.robot.subsystems;
 
+import com.ctre.phoenix6.hardware.TalonFX;
+
+import edu.wpi.first.wpilibj.DriverStation;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class IntakeSubsystem extends SubsystemBase {
     /** motor ID = 5, default speed = 60% */
+    private TalonFX intakemotor = new TalonFX(kIntakeMotorID);
     private static final int kIntakeMotorID = 5; // moved from Constants
     private static final double kDefaultIntakeSpeed = 0.6;
 
@@ -55,5 +60,6 @@ public class IntakeSubsystem extends SubsystemBase {
     @Override
     public void simulationPeriodic() {
         // Called once per scheduler run during simulation.
+        SmartDashboard.putNumber("Intake Percent Output:", intakemotor.get());
     }
 }
