@@ -53,9 +53,10 @@ public class RobotContainer {
     m_driverController.b().whileTrue(m_exampleSubsystem.exampleMethodCommand());
 
   // Toggle intake when A is pressed
-  m_driverController.a()
-    .onTrue(Commands.runOnce(() -> m_intakeSubsystem.toggle(), m_intakeSubsystem));
+  m_driverController.a(); {
+    //.toggleOnTrue(new RunIntakeCommand());
   }
+}
 
   public Command getAutonomousCommand() {
     return Commands.print("No autonomous command configured");
