@@ -12,7 +12,7 @@ import frc.robot.Constants.OperatorConstants;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.IntakeSubsystem;
-
+import frc.robot.commands.*;
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
@@ -53,9 +53,7 @@ public class RobotContainer {
     m_driverController.b().whileTrue(m_exampleSubsystem.exampleMethodCommand());
 
   // Toggle intake when A is pressed
-  m_driverController.a(); {
-    //.toggleOnTrue(new RunIntakeCommand());
-  }
+  m_driverController.a().toggleOnTrue(new ExampleCommand(m_exampleSubsystem) )
 }
 
   public Command getAutonomousCommand() {
