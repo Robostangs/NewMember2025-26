@@ -12,6 +12,9 @@ import frc.robot.Constants.OperatorConstants;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.IntakeSubsystem;
+import frc.robot.commands.*;
+import frc.robot.commands.IntakeCommands.*;
+
 
 
 /**
@@ -26,6 +29,8 @@ public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   //@SuppressWarnings("unused")
   private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
+
+  private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
 
   // Intake subsystem: Creates intake subsystem. This makes the intake exist. 
   //@SuppressWarnings("unused")
@@ -53,7 +58,11 @@ public class RobotContainer {
     m_driverController.b().whileTrue(m_exampleSubsystem.exampleMethodCommand());
 
   // Toggle intake when A is pressed
-  m_driverController.a().toggleOnTrue(new ExampleCommand(m_exampleSubsystem) )
+  m_driverController.a().toggleOnTrue(new ExampleCommand(m_exampleSubsystem));
+  m_driverController.a().toggleOnTrue(new RunIntakeCommand(m_intakeSubsystem));
+
+    new Trigger(m_exampleSubsystem::exampleCondition)
+      .toggleOnTrue(new ExampleCommand(m_exampleSubsystem));
 }
 
   public Command getAutonomousCommand() {

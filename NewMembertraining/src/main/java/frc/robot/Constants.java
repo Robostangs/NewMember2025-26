@@ -8,10 +8,7 @@ public final class Constants {
   }
 
     public static class IntakeConstants {
-        public static final int intakeMotorID = 5;
-
-        public static final TalonFXConfiguration configs = new TalonFXConfiguration();
-
+        public static final int kIntakeMotorID = 5;
     }
     public static class ShooterConstants {
         public static final int kShooterEncoderId = 6;
