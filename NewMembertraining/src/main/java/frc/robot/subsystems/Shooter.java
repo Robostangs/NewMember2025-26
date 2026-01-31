@@ -18,8 +18,10 @@ public class Shooter extends SubsystemBase {
     //variable creation
     private static Shooter mInstance;
     private MotionMagicTorqueCurrentFOC shooterControl;
-    private CANcoder shooterEncoder;
-    private TalonFX shooterMotor;
+    private CANcoder shooterEncoderAim;
+    private CANcoder shooterEncoderShoot;
+    private TalonFX shooterMotorAim;
+    private TalonFX shooterMotorShoot;
 
 
     //gets an active instance of the shooter
@@ -34,17 +36,19 @@ public class Shooter extends SubsystemBase {
 
         //variable definitions
         shooterControl = new MotionMagicTorqueCurrentFOC(Constants.ShooterConstants.kShooterRestSetpoint);
-        shooterEncoder = new CANcoder(Constants.ShooterConstants.kShooterEncoderId);
+        shooterEncoderAim = new CANcoder(Constants.ShooterConstants.kShooterEncoderAimId);
+        shooterEncoderShoot = new CANcoder(Constants.ShooterConstants.kShooterEncoderShootId);
     }
 
 
     public void ShootFuel (double force) {
         //code to shoot the ball
+        shooterControl.Position += force;
     }
 
-    public void ChangeShooterPosition (double speed, int direction) {
+    public void ChangeShooterPosition (double speed) {
         //code to set the shooter position
-        shooterControl.Position += (speed*direction);
+        shooterControl.Position += (speed);
     }
 
     public void setDefaultShooterPosition() {
@@ -52,14 +56,24 @@ public class Shooter extends SubsystemBase {
         shooterControl.Position = Constants.ShooterConstants.kShooterRestSetpoint;
     }
 
-    public boolean isShooterAtTarget (double tolerance) {
+    public boolean isShooterPositionAtTarget (double tolerance) {
         //code to check if the shooter is at the target position
-        return Math.abs(shooterControl.Position - shooterEncoder.getAbsolutePosition().getValueAsDouble()) < tolerance;
+        return Math.abs(shooterControl.Position - shooterEncoderAim.getAbsolutePosition().getValueAsDouble()) < tolerance;
     }
 
-    public void setShooterMotionMagic() {
+    public boolean isShooterShooterAtTarget (double tolerance) {
+        //code to check if the shooter is at the target position
+        return Math.abs(shooterControl.Position - shooterEncoderShoot.getAbsolutePosition().getValueAsDouble()) < tolerance;
+    }
+
+    public void setShooterAimMotionMagic() {
         //code to set the shooter using motion magic
-        shooterMotor.setControl(shooterControl);
+        shooterMotorAim.setControl(shooterControl);
+    }
+
+    public void setShooterShootMotionMagic() {
+        //code to set the shooter using motion magic
+        shooterMotorShoot.setControl(shooterControl);
     }
 
     @Override
