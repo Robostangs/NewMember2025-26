@@ -11,7 +11,8 @@ import edu.wpi.first.wpilibj2.command.button.Trigger;
 import frc.robot.Constants.OperatorConstants;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.subsystems.ExampleSubsystem;
-import frc.robot.subsystems.IntakeSubsystem;
+//import frc.robot.subsystems.IntakeSubsystem;
+import frc.robot.subsystems.Shooter;
 
 
 /**
@@ -29,7 +30,13 @@ public class RobotContainer {
 
   // Intake subsystem: Creates intake subsystem. This makes the intake exist. 
   //@SuppressWarnings("unused")
-  private final IntakeSubsystem m_intakeSubsystem = new IntakeSubsystem();
+
+
+  //private final IntakeSubsystem m_intakeSubsystem = new IntakeSubsystem();
+
+  private final Shooter m_shooter = new Shooter();
+
+
 
     // Xbox Controller: Creates xbox controller. This lets us read button presses.
   //@SuppressWarnings("unused")
@@ -53,7 +60,7 @@ public class RobotContainer {
     m_driverController.b().whileTrue(m_exampleSubsystem.exampleMethodCommand());
 
   // Toggle intake when A is pressed
-  m_driverController.a().toggleOnTrue(new ExampleCommand(m_exampleSubsystem) )
+  m_driverController.a().toggleOnTrue(new ExampleCommand(m_exampleSubsystem) );
 }
 
   public Command getAutonomousCommand() {
