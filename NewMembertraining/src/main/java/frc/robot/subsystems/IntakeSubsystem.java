@@ -15,7 +15,9 @@ public class IntakeSubsystem extends SubsystemBase {
     private static IntakeSubsystem mInstance;
     private TalonFX intakemotor;
     /** motor ID = 5, default speed = 60% */
-    
+    private static final int kIntakeMotorID = 5; // moved from Constants
+    private static final double kDefaultIntakeSpeed = 0.6;
+
     // Toggle state
     private boolean running = false; // This remembers whether the intake is currently on/off.
 
@@ -33,8 +35,29 @@ public class IntakeSubsystem extends SubsystemBase {
 
     /** Run the intake at a percent output [-1.0, 1.0]. */
     public void setPercentOutput(double percent) {
-         intakemotor.set(percent);
+        // TODO: set motor output via CTRE Phoenix6 TalonFX when available.
     }
+
+    /** For now, it runs intake at default speed. This turns the intake ON. */
+    public void run() { 
+            setPercentOutput(kDefaultIntakeSpeed);
+            running = true;
+    }
+
+    /** Stop the intake motor. */
+    public void stop() {
+            setPercentOutput(0.0);
+            running = false;
+    }
+
+        /** Toggle intake on/off. */
+        public void toggle() {
+            if (running) {
+                stop();
+            } else {
+                run();
+            }
+        }
 
     @Override
     public void periodic() {

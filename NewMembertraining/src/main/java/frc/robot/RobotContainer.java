@@ -12,7 +12,7 @@ import frc.robot.Constants.OperatorConstants;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.IntakeSubsystem;
-import frc.robot.commands.*;
+
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
@@ -24,15 +24,15 @@ import frc.robot.commands.*;
 
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
-  @SuppressWarnings("unused")
+  //@SuppressWarnings("unused")
   private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
 
   // Intake subsystem: Creates intake subsystem. This makes the intake exist. 
-  @SuppressWarnings("unused")
+  //@SuppressWarnings("unused")
   private final IntakeSubsystem m_intakeSubsystem = new IntakeSubsystem();
 
     // Xbox Controller: Creates xbox controller. This lets us read button presses.
-  @SuppressWarnings("unused")
+  //@SuppressWarnings("unused")
   private final CommandXboxController m_driverController =
       new CommandXboxController(OperatorConstants.kDriverControllerPort);
 
@@ -58,5 +58,12 @@ public class RobotContainer {
 
   public Command getAutonomousCommand() {
     return Commands.print("No autonomous command configured");
+  }
+
+  public void update() {
+    //SmartDashboard.putNumber("Memory/GC Time MS", (double) accumtime);
+    //SmartDashboard.putNumber("Memory/GCCounts", (double) accumCounts);
+    //SmartDashboard.putNumber("Memory/GC Time MS", (double) memBean.getHeapMemoryUsage().getUsed());
+
   }
 }
