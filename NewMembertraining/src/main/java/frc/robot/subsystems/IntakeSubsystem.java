@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class IntakeSubsystem extends SubsystemBase {
     /** motor ID = 5, default speed = 60% */
-    private static final int kIntakeMotorID = 5; // moved from Constants
+    //private static final int kIntakeMotorID = 5; // moved from Constants
     private static final double kDefaultIntakeSpeed = 0.6;
 
     // Toggle state
@@ -21,7 +21,7 @@ public class IntakeSubsystem extends SubsystemBase {
 
     /** Run the intake at a percent output [-1.0, 1.0]. */
     public void setPercentOutput(double percent) {
-        // TODO: set motor output via CTRE Phoenix6 TalonFX when available.
+        // TO-DO: set motor output via CTRE Phoenix6 TalonFX when available.
     }
 
     /** For now, it runs intake at default speed. This turns the intake ON. */
