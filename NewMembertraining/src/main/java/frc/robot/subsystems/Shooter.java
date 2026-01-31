@@ -1,5 +1,5 @@
 
-
+ /*
 package frc.robot.subsystems;
 
 import com.ctre.phoenix6.controls.MotionMagicTorqueCurrentFOC;
@@ -69,4 +69,4 @@ public class Shooter extends SubsystemBase {
     
     
 }
-
+*/
