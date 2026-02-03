@@ -9,12 +9,11 @@ import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 import frc.robot.Constants.OperatorConstants;
+import frc.robot.commands.*;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.IntakeSubsystem;
-import frc.robot.commands.*;
-import frc.robot.commands.IntakeCommands.*;
-
+import frc.robot.commands.IntakeCommands.RunIntakeCommand;
 
 
 /**
@@ -27,17 +26,15 @@ import frc.robot.commands.IntakeCommands.*;
 
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
-  //@SuppressWarnings("unused")
+  @SuppressWarnings("unused")
   private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
 
-  private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
-
   // Intake subsystem: Creates intake subsystem. This makes the intake exist. 
-  //@SuppressWarnings("unused")
+  @SuppressWarnings("unused")
   private final IntakeSubsystem m_intakeSubsystem = new IntakeSubsystem();
 
     // Xbox Controller: Creates xbox controller. This lets us read button presses.
-  //@SuppressWarnings("unused")
+  @SuppressWarnings("unused")
   private final CommandXboxController m_driverController =
       new CommandXboxController(OperatorConstants.kDriverControllerPort);
 
@@ -58,21 +55,11 @@ public class RobotContainer {
     m_driverController.b().whileTrue(m_exampleSubsystem.exampleMethodCommand());
 
   // Toggle intake when A is pressed
-  m_driverController.a().toggleOnTrue(new ExampleCommand(m_exampleSubsystem));
-  m_driverController.a().toggleOnTrue(new RunIntakeCommand(m_intakeSubsystem));
+  m_driverController.a().toggleOnTrue(new RunIntakeCommand());
 
-    new Trigger(m_exampleSubsystem::exampleCondition)
-      .toggleOnTrue(new ExampleCommand(m_exampleSubsystem));
 }
 
   public Command getAutonomousCommand() {
     return Commands.print("No autonomous command configured");
-  }
-
-  public void update() {
-    //SmartDashboard.putNumber("Memory/GC Time MS", (double) accumtime);
-    //SmartDashboard.putNumber("Memory/GCCounts", (double) accumCounts);
-    //SmartDashboard.putNumber("Memory/GC Time MS", (double) memBean.getHeapMemoryUsage().getUsed());
-
   }
 }

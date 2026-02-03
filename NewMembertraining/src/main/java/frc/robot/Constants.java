@@ -9,9 +9,13 @@ public final class Constants {
 
     public static class IntakeConstants {
         public static final int kIntakeMotorID = 5;
+        public static final int intakeMotorID = 5;
+
+        public static final double kDefaultIntakeSpeed = 0.6;
     }
     public static class ShooterConstants {
-        public static final int kShooterEncoderId = 6;
+        public static final int kShooterEncoderAimId = 6;
+        public static final int kShooterEncoderShootId = 7;
         public static final double kShooterRestSetpoint = 0.0;
     }
 }
