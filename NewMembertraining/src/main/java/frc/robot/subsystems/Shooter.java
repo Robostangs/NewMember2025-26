@@ -8,6 +8,9 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 import frc.robot.Constants;
 
+import edu.wpi.first.wpilibj2.command.Command;  
+import edu.wpi.first.wpilibj2.command.Commands;
+
 import com.ctre.phoenix6.hardware.CANcoder;
 
 import com.ctre.phoenix6.hardware.TalonFX;
@@ -17,9 +20,9 @@ public class Shooter extends SubsystemBase {
 
     //variable creation
     private static Shooter mInstance;
-    private MotionMagicTorqueCurrentFOC shooterControl;
-    private CANcoder shooterEncoderAim;
-    private CANcoder shooterEncoderShoot;
+    public MotionMagicTorqueCurrentFOC shooterControl;
+    public CANcoder shooterEncoderAim;
+    public CANcoder shooterEncoderShoot;
     private TalonFX shooterMotorAim;
     private TalonFX shooterMotorShoot;
 
@@ -41,19 +44,24 @@ public class Shooter extends SubsystemBase {
     }
 
 
-    public void ShootFuel (double force) {
+
+    public Command ShootFuel (double force) {
         //code to shoot the ball
-        shooterControl.Position += force;
+        //shooterControl.Position += force;
+        return Commands.runOnce(() -> shooterControl.Position += force, this);
+
     }
 
-    public void ChangeShooterPosition (double speed) {
+    public Command ChangeShooterPosition (double speed) {
         //code to set the shooter position
-        shooterControl.Position += (speed);
+        //shooterControl.Position += (speed);
+        return Commands.runOnce(() -> shooterControl.Position += speed, this);
     }
 
-    public void setDefaultShooterPosition() {
+    public Command setDefaultShooterPosition() {
         //code to set the shooter to the default position
-        shooterControl.Position = Constants.ShooterConstants.kShooterRestSetpoint;
+        //shooterControl.Position = Constants.ShooterConstants.kShooterRestSetpoint;
+        return Commands.runOnce(() -> shooterControl.Position = Constants.ShooterConstants.kShooterRestSetpoint, this);
     }
 
     public boolean isShooterPositionAtTarget (double tolerance) {

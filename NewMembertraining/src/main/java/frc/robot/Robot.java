@@ -5,19 +5,22 @@
 package frc.robot;
 
 import com.ctre.phoenix6.hardware.TalonFX;
-
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
+import frc.robot.subsystems.Shooter;
 
 public class Robot extends TimedRobot {
   private Command m_autonomousCommand;
 
   private final RobotContainer m_robotContainer;
+  private final Shooter shooter;
 
   public Robot() {
     m_robotContainer = new RobotContainer();
+    shooter = new Shooter();
   }
 
   @Override
@@ -64,7 +67,9 @@ public class Robot extends TimedRobot {
   }
 
   @Override
-  public void teleopPeriodic() {}
+  public void teleopPeriodic() {
+    SmartDashboard.putString("Motor positions ", "AIM:"+shooter.shooterEncoderAim.getPosition()+" SHOOT:"+shooter.shooterEncoderShoot.getPosition());
+  }
 
   @Override
   public void teleopExit() {}
