@@ -36,5 +36,18 @@ public class IntakeSubsystem extends SubsystemBase {
          intakemotor.set(percent);
     }
 
-   
+    @Override
+    public void periodic() {
+        // Called once per scheduler run.
+    }
+
+    @Override
+    public void simulationPeriodic() {
+        // Called once per scheduler run during simulation.
+        SmartDashboard.putNumber("Intake Percent Output:", intakemotor.get());
+    }
+    
+    public void runIntake(double speed) {
+        intakemotor.set(speed);
+    }
 }
