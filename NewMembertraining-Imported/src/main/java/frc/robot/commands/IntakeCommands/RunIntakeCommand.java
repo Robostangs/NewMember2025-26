@@ -12,19 +12,19 @@ import edu.wpi.first.wpilibj2.command.Command;
 public class RunIntakeCommand extends Command {
     //Declare Intake Subsystem
     IntakeSubsystem intakeSubsystem;
-     public RunIntakeCommand() {
+    public RunIntakeCommand() {
         this.intakeSubsystem = IntakeSubsystem.getInstance();
         addRequirements(intakeSubsystem);
     }
     
     @Override
-public void execute() {
-    //Run intake at 60% power
-    intakeSubsystem.runIntake(Constants.IntakeConstants.kDefaultIntakeSpeed);
-}
-public void end (boolean interrupted) {
-    //Stop intake when command ends
-    intakeSubsystem.runIntake(0.0);
-}
+    public void execute() {
+        //Run intake at 60% power
+        intakeSubsystem.runIntake(Constants.IntakeConstants.kDefaultIntakeSpeed);
+    }
+    public void end (boolean interrupted) {
+        //Stop intake when command ends
+        intakeSubsystem.runIntake(0.0);
+    }
 
 }
