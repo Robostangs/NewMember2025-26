@@ -3,7 +3,7 @@ public class EjectCommand extends Command {
 
     @Override
     public void initialize() {
-        m_intakeSubsystem.setPercentOutput(-kDefaultIntakeSpeed); 
+        m_intakeSubsystem.setPercentOutput(-Constants.IntakeConstants.kDefaultIntakeSpeed); 
     }
 
     @Override
@@ -16,5 +16,5 @@ public class EjectCommand extends Command {
         return false;
 
 
-        
+
 }
