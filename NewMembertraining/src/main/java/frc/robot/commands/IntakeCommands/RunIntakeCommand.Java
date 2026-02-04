@@ -10,21 +10,20 @@ import frc.robot.Constants;
 import edu.wpi.first.wpilibj2.command.Command;
 
 public class RunIntakeCommand extends Command {
-    //Declare Intake Subsystem
-    IntakeSubsystem intakeSubsystem;
-     public RunIntakeCommand() {
-        this.intakeSubsystem = IntakeSubsystem.getInstance();
-        addRequirements(intakeSubsystem);
+ @Override
+    public void periodic() {
+        // Called once per scheduler run.
+    }
+
+    @Override
+    public void simulationPeriodic() {
+        // Called once per scheduler run during simulation.
+        SmartDashboard.putNumber("Intake Percent Output:", intakemotor.get());
     }
     
-    @Override
-public void execute() {
-    //Run intake at 60% power
-    intakeSubsystem.runIntake(Constants.IntakeConstants.kDefaultIntakeSpeed);
-}
-public void end (boolean interrupted) {
-    //Stop intake when command ends
-    intakeSubsystem.runIntake(0.0);
+    public void runIntake(double speed) {
+        intakemotor.set(speed);
+    }
 }
 
 }
