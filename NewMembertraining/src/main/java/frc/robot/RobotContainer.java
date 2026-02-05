@@ -13,7 +13,7 @@ import frc.robot.commands.*;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.IntakeSubsystem;
-import frc.robot.commands.IntakeCommands.RunIntakeCommand;
+import frc.robot.commands.IntakeCommands.*;
 
 
 /**
