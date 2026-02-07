@@ -17,6 +17,7 @@ import frc.robot.commands.ShooterCommands.SetDefaultShooterPosition;
 import frc.robot.commands.ShooterCommands.ShootFuel;
 import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.IntakeSubsystem;
+import frc.robot.subsystems.Shooter;
 import frc.robot.commands.IntakeCommands.RunIntakeCommand;
 
 
