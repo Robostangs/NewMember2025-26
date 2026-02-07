@@ -7,13 +7,14 @@ public class ChangeShooterPosition extends Command {
     Shooter shooter;
     double speed;
 
+    //gets an active instance of the shooter and adds it as a requirement for this command
     public ChangeShooterPosition() {
         shooter = Shooter.getInstance();
         addRequirements(shooter);
     }
     @Override
     public void initialize() {
-
+        //changes the shooter position by adding the speed to the shooter's position
         shooter.ChangeShooterPosition(speed);
     }
 
@@ -29,6 +30,7 @@ public class ChangeShooterPosition extends Command {
 
     @Override
     public boolean isFinished() {
+        //runs until the command is interrupted, which will be when the button is released
         return true;
     }
 }

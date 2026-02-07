@@ -18,7 +18,7 @@ import com.ctre.phoenix6.hardware.TalonFX;
 public class Shooter extends SubsystemBase {
     
 
-    //variable creation
+    //variable creation (two motors/encoders, one for aiming and one for shooting)
     private static Shooter mInstance;
     public MotionMagicTorqueCurrentFOC shooterControl;
     public CANcoder shooterEncoderAim;

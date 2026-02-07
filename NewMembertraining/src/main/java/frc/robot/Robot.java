@@ -54,7 +54,9 @@ public class Robot extends TimedRobot {
 
   /** This function is called periodically during autonomous. */
   @Override
-  public void autonomousPeriodic() {}
+  public void autonomousPeriodic() {
+    SmartDashboard.putString("Motor positions ", "AIM:"+shooter.shooterEncoderAim.getPosition()+" SHOOT:"+shooter.shooterEncoderShoot.getPosition());
+  }
 
   @Override
   public void autonomousExit() {}
