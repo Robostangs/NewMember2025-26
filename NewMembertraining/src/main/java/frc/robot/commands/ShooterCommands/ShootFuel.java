@@ -31,7 +31,7 @@ public class ShootFuel extends Command {
 
     @Override
     public boolean isFinished() {
-        //only finishes when shooter moter is at target
+        //only finishes when shooter motor is at target
         return shooter.isShooterShooterAtTarget(Constants.ShooterConstants.kShooterShootTolerance);
     }
 }

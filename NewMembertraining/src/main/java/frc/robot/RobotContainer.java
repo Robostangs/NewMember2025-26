@@ -72,6 +72,8 @@ public class RobotContainer {
     m_driverController.y().whileTrue(m_Shooter.ShootFuel(50));
     m_driverController.rightStick().whileTrue(m_Shooter.ChangeShooterPosition(m_driverController.getRawAxis(1)));
 
+   
+
 
   // Toggle example command when A is pressed
   m_driverController.a().toggleOnTrue(new ExampleCommand(m_exampleSubsystem) );
