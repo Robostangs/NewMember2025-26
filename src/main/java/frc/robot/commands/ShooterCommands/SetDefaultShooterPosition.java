@@ -13,7 +13,6 @@ public class SetDefaultShooterPosition extends Command {
     }
     @Override
     public void initialize() {
-
         shooter.setDefaultShooterPosition();
     }
 
@@ -24,7 +23,7 @@ public class SetDefaultShooterPosition extends Command {
 
     @Override
     public void end(boolean interrupted) {
-
+        shooter.stopShooter();
     }
 
     @Override

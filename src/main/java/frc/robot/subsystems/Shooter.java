@@ -80,6 +80,10 @@ public class Shooter extends SubsystemBase {
     public void periodic() {
         // This method will be called once per scheduler run
     }
+    public void stopShooter() {
+        shooterMotorShoot.setControl(shooterControl);
+        shooterControl.FeedForward = 0;
+    }
     
     
 }

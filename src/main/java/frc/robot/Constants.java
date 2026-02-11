@@ -13,6 +13,7 @@ public final class Constants {
         public static final double kDefaultIntakeSpeed = 0.6;
     }
     public static class ShooterConstants {
+        public static final double kShooterSpeed = 0.6;
         public static final int kShooterEncoderAimId = 6;
         public static final int kShooterEncoderShootId = 7;
         public static final double kShooterRestSetpoint = 0.0;
