@@ -12,15 +12,21 @@ import frc.robot.subsystems.IntakeSubsystem;
 public class EjectCommand extends Command {
   IntakeSubsystem m_intakeSubsystem;
 
+
+    public EjectCommand(){
+        m_intakeSubsystem = IntakeSubsystem.getInstance();
+        addRequirements(m_intakeSubsystem);
+    }
+
     @Override
     public void initialize() {
-        m_intakeSubsystem.setPercentOutput(-Constants.IntakeConstants.kDefaultIntakeSpeed);
-         
+        m_intakeSubsystem.runIntake(-Constants.IntakeConstants.kDefaultIntakeSpeed);
+
     }
 
     @Override
     public void end(boolean interrupted) {
-        m_intakeSubsystem.setPercentOutput(0);
+        m_intakeSubsystem.runIntake(0);
     }
 
     @Override

@@ -32,10 +32,7 @@ public class IntakeSubsystem extends SubsystemBase {
     
 
     /** Run the intake at a percent output [-1.0, 1.0]. */
-    public void setPercentOutput(double percent) {
-         intakemotor.set(percent);
-    }
-
+   
     @Override
     public void periodic() {
         // Called once per scheduler run.

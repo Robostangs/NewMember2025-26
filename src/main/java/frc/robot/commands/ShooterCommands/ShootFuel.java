@@ -13,13 +13,7 @@ public class ShootFuel extends Command {
     }
     @Override
     public void initialize() {
-
         shooter.ShootFuel(20);
-    }
-
-    @Override
-    public void execute() {
-        shooter.setShooterShootMotionMagic();
     }
 
     @Override
@@ -27,8 +21,4 @@ public class ShootFuel extends Command {
 
     }
 
-    @Override
-    public boolean isFinished() {
-        return shooter.isShooterShooterAtTarget(0.01);
-    }
 }
